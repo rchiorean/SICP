@@ -1,16 +1,21 @@
+(define (fast-exp-iter b n c) 
+ (cond ((= n 0) c)
+       ((even? n) (fast-exp-iter (* b b) (/ n 2) c))
+       (else (fast-exp-iter b (- n 1) (* c b)))))
+
 (define (fast-exp b n) 
+  (fast-exp-iter b n 1)
+)
 
-(define (fast-exp-iter a p) 
- (cond ((= n 0) a)
-       ((= p n) a)
-       ((= a 1) (fast-exp-iter b 1))
-       ((< (* 2 p) n) (fast-exp-iter  (* a a) (* 2 p)))
-       (else (fast-exp-iter  (* a b) (+ p 1)))))
 
-(fast-exp-iter 1 0))
+(fast-exp 1 0)
 
 (fast-exp 2 10)
 
 (fast-exp 2 4)
 
 (fast-exp 2 1)
+
+(fast-exp 3 4)
+
+(fast-exp 2 9)
