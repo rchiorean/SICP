@@ -8,3 +8,10 @@
 ; 4th comp: 4 (2 for b, one for a)
 ; 5th comp: 7 (4 for b, 2 for a)
 ; Total 18 times
+
+(define (gcd a b)
+  (if (= b 0)
+    a
+    (gcd b (remainder a b))))
+
+(gcd 206 40)
